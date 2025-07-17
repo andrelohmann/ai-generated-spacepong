@@ -1,0 +1,20 @@
+
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: space_pong_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/usr/share/nginx/html
+    environment:
+      - NGINX_HOST=localhost
+    networks:
+      - space_pong_network
+
+networks:
+  space_pong_network:
+    driver: bridge
+

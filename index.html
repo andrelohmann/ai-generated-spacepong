@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Pong Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        canvas {
+            border: 2px solid #fff;
+            background-color: #000;
+        }
+
+        #game-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+        }
+
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-info">Space Pong Game</div>
+    <div id="controls">
+        Player 1: A & D keys<br>
+        Player 2: Left & Right Arrow keys
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <!-- Sound effects -->
+    <audio id="paddleHitSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-223.mp3" preload="auto"></audio>
+    <audio id="invaderShootSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-notification-220.mp3" preload="auto"></audio>
+    <audio id="gameOverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jingle-61.mp3" preload="auto"></audio>
+
+    <script src="game.js"></script>
+</body>
+</html>
+
