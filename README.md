@@ -4,6 +4,8 @@
 
 A unique web-based game that combines elements from Space Invaders and Pong.
 
+![Game Screenshot](https://raw.githubusercontent.com/andrelohmann/ai-generated-spacepong/main/screenshots/screenshot_20250717_180918_744821.png)
+
 ## Features
 
 - **Two-player action**: Players control paddles at the top and bottom of the screen
@@ -24,6 +26,14 @@ A unique web-based game that combines elements from Space Invaders and Pong.
 2. Avoid getting hit by invader bullets (3 hits = game over)
 3. Avoid letting the ball pass your paddle
 4. Send the ball to your opponent's side to score points
+
+## Screenshots
+
+![Gameplay](https://raw.githubusercontent.com/andrelohmann/ai-generated-spacepong/main/screenshots/screenshot_20250717_180125_444656.png)
+*Gameplay showing invaders, paddles, and ball*
+
+![Game Over](https://raw.githubusercontent.com/andrelohmann/ai-generated-spacepong/main/screenshots/screenshot_20250717_174317_880346.png)
+*Game over screen with winner announcement*
 
 ## Installation
 
