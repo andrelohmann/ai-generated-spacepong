@@ -115,8 +115,10 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.font = '20px Arial';
 
         // Player scores
-        ctx.fillText('Player 1 Health: ' + player1Health, 20, 30);
-        ctx.fillText('Player 2 Health: ' + player2Health, canvas.width - 200, 30);
+        ctx.fillText('Player 1 Score: ' + player1.score, 20, 30);
+        ctx.fillText('Player 2 Score: ' + player2.score, canvas.width - 200, 30);
+        ctx.fillText('Player 1 Health: ' + player1Health, 20, 60);
+        ctx.fillText('Player 2 Health: ' + player2Health, canvas.width - 200, 60);
 
         // Game over message
         if (gameOver) {
@@ -171,6 +173,34 @@ document.addEventListener('DOMContentLoaded', function() {
             ball.y = player2.y - ball.size; // Prevent sticking
             paddleHitSound.currentTime = 0;
             paddleHitSound.play();
+        }
+
+        // Ball collision with invaders
+        for (let i = 0; i < invaders.length; i++) {
+            let invader = invaders[i];
+            if (ball.x + ball.size > invader.x &&
+                ball.x < invader.x + invader.width &&
+                ball.y + ball.size > invader.y &&
+                ball.y < invader.y + invader.height) {
+
+                // Ball bounces back
+                ball.vy = -ball.vy;
+                ball.y = invader.y + invader.height; // Prevent sticking
+
+                // Remove invader (it explodes)
+                invaders.splice(i, 1);
+                i--;
+
+                // Play explosion sound
+                if (explosionSound) {
+                    explosionSound.currentTime = 0;
+                    explosionSound.play();
+                }
+
+                // Increase player scores
+                player1.score++;
+                player2.score++;
+            }
         }
 
         // Ball goes out of bounds (player loses)
@@ -291,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const paddleHitSound = document.getElementById('paddleHitSound');
     const invaderShootSound = document.getElementById('invaderShootSound');
     const gameOverSound = document.getElementById('gameOverSound');
+    const explosionSound = document.getElementById('explosionSound');
 
     // Main game loop
     function gameLoop() {
